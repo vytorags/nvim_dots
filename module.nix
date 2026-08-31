@@ -9,7 +9,7 @@ inputs:
 }:
 {
   imports = [ wlib.wrapperModules.neovim ];
-  config.settings.config_directory = ./.;
+  config.settings.config_directory = lib.generators.mkLuaInline "vim.fn.stdpath('config')";
   config.settings.wrapRc = true;
   config.settings.aliases = [ "vim" ];
   config.hosts.python3.nvim-host.enable = true;

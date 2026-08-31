@@ -28,3 +28,23 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.shiftwidth = 4
 	end,
 })
+
+-- local nvdash_group = vim.api.nvim_create_augroup("HideStatuslineNvdash", { clear = true })
+--
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = "nvdash",
+-- 	group = nvdash_group,
+-- 	callback = function()
+-- 		vim.opt.laststatus = 0
+-- 	end,
+-- })
+--
+-- vim.api.nvim_create_autocmd("BufLeave", {
+-- 	pattern = "*",
+-- 	group = nvdash_group,
+-- 	callback = function()
+-- 		if vim.bo.filetype == "nvdash" then
+-- 			vim.opt.laststatus = 3
+-- 		end
+-- 	end,
+-- })

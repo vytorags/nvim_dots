@@ -8,7 +8,7 @@ return {
 	config = function()
 		require("snacks").setup({
 			dashboard = {
-				enabled = true,
+				enabled = false,
 				preset = {
 					header = [[
      ██╗ ██████╗ ██╗   ██╗██████╗  ██████╗ ██╗   ██╗
@@ -56,10 +56,10 @@ return {
 							function()
 								if require("nixCatsUtils").isNixCats == true then
 									return {
-										icon = " ",
-										key = "v",
-										desc = "Obsidian Vault",
-										action = ":tcd $HOME/Workspace/Brain | :e .",
+										icon = " ",
+										key = "s",
+										desc = "Settings",
+										action = ":tcd $HOME/.config/nvim/ | :e .",
 									}
 								else
 									return {}
@@ -149,10 +149,12 @@ return {
 				enabled = true,
 				ui_select = true,
 				layout = {
-					layout = {
-						preset = "vscode",
-						backdrop = false,
-					},
+					preset = "vscode",
+					backdrop = true,
+					-- layout = {
+					-- 	position = "left",
+					-- 	box = "vertical",
+					-- },
 				},
 				sources = {
 					files = {
@@ -196,10 +198,12 @@ return {
 							"tests/",
 						},
 						layout = {
-							preset = "sidebar",
+							cycle = false,
+							preset = "dropdown",
 							layout = {
 								position = "right",
 								box = "vertical",
+								width = 35,
 							},
 							preview = false,
 						},

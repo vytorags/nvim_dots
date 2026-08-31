@@ -3,6 +3,7 @@ return {
 	event = "User FilePost",
 	dependencies = { "nvim-cmp" },
 	config = function()
+		local root_dir = vim.fn.getcwd()
 		local ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
 		if ok then
 			vim.lsp.config("*", { capabilities = cmp_lsp.default_capabilities() })
@@ -44,7 +45,24 @@ return {
 				marksman = {},
 				jsonls = {},
 				pyright = {},
-				luau_lsp = {},
+				luau_lsp = {
+					cmd = {
+						"luau-lsp",
+						"lsp",
+						"--definitions:@noctalia=" .. root_dir .. "/noctalia.d.luau",
+					},
+					settings = {
+						["luau-lsp"] = {
+							ignoreGlobs = { "**/*.d.luau" },
+							platform = {
+								type = "standard",
+							},
+							sourcemap = {
+								enabled = false,
+							},
+						},
+					},
+				},
 				svelte = {
 					init_options = {
 						typescript = {
